@@ -1,0 +1,87 @@
+import wollok.game.*
+import rodados.*
+import colores.*
+import game_elementos.*
+
+program corsasEnElGame {
+  game.title("Flotas de Rodados")
+  game.width(15)
+  game.height(15)
+
+  const auto1 = new ChevroletCorsa(color = rojo)
+  auto1.position(game.at(1, 1))
+
+  const auto2 = new ChevroletCorsa(color = azul)
+  auto2.position(game.at(3, 1))
+
+  const auto3 = new ChevroletCorsa(color = verde)
+  auto3.position(game.at(5, 1))
+
+  game.addVisual(auto1)
+  game.addVisual(auto2)
+  game.addVisual(auto3)
+
+  const paredFuerte = new Pared(resistencia = 3, position = game.at(5, 5))
+  const paredMedia = new Pared(resistencia = 2, position = game.at(2, 6))
+
+  game.addVisual(paredFuerte)
+  game.addVisual(paredMedia)
+
+  const todosLosAutos = [auto1, auto2, auto3]
+  var autoActivo = auto1
+  var modoTodos = false
+
+  keyboard.num1().onPressDo({ autoActivo = auto1; modoTodos = false })
+  keyboard.num2().onPressDo({ autoActivo = auto2; modoTodos = false })
+  keyboard.num3().onPressDo({ autoActivo = auto3; modoTodos = false })
+  keyboard.t().onPressDo({ modoTodos = true })
+
+  keyboard.r().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(rojo) })
+    else autoActivo.color(rojo)
+  })
+  keyboard.a().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(azul) })
+    else autoActivo.color(azul)
+  })
+  keyboard.v().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(verde) })
+    else autoActivo.color(verde)
+  })
+  keyboard.g().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(beige) })
+    else autoActivo.color(beige)
+  })
+
+  keyboard.n().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(negro) })
+    else autoActivo.color(negro)
+  })
+  keyboard.b().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.color(blanco) })
+    else autoActivo.color(blanco)
+  })
+
+  keyboard.up().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.moverseHacia(norte) })
+    else autoActivo.moverseHacia(norte)
+  })
+  keyboard.down().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.moverseHacia(sur) })
+    else autoActivo.moverseHacia(sur)
+  })
+  keyboard.left().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.moverseHacia(oeste) })
+    else autoActivo.moverseHacia(oeste)
+  })
+  keyboard.right().onPressDo({
+    if (modoTodos) todosLosAutos.forEach({ auto => auto.moverseHacia(este) })
+    else autoActivo.moverseHacia(este)
+  })
+
+  game.onCollideDo(paredFuerte, { auto => paredFuerte.chocar(auto) })
+
+  game.onCollideDo(paredMedia, { auto => paredMedia.chocar(auto) })
+
+  game.start()
+}
