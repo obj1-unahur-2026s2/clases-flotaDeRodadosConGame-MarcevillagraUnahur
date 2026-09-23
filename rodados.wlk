@@ -104,6 +104,9 @@ object trafic {
   method velocidadMaxima() = motor.velocidadMaxima()
   
   method peso() = (4000 + interior.peso()) + motor.peso()
+  method cambiarInterior(unInterior) {interior=unInterior
+    
+  }
 }
 
 object interiorComodo {
