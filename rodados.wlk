@@ -94,8 +94,8 @@ class AutoEspecial {
 }
 
 object trafic {
-  var property interior = interiorPopular
-  var property motor = motorBataton
+  var  interior = interiorPopular
+  var  motor = motorBataton
   
   method color() = blanco
   
@@ -104,9 +104,8 @@ object trafic {
   method velocidadMaxima() = motor.velocidadMaxima()
   
   method peso() = (4000 + interior.peso()) + motor.peso()
-  method cambiarInterior(unInterior) {interior=unInterior
-    
-  }
+  method cambiarInterior(unInterior) {interior=unInterior}
+  method cambiarMotor(unMotor) {motor=unMotor}
 }
 
 object interiorComodo {
