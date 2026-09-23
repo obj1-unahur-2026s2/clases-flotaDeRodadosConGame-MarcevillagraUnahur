@@ -11,7 +11,7 @@ describe "Flotas de Rodados - Etapas 1, 2 y 3" {
   const cachito = new ChevroletCorsa(color = rojo)
 
   const corsaAzul = new ChevroletCorsa(color = azul)
-  const corsaVerde = new ChevroletCorsa(color = verde)S
+  const corsaVerde = new ChevroletCorsa(color = verde)
   const kwidConTanque1 = new RenaultKwid(equipoDeGas = conAdicional)
   const autoEspecial = new AutoEspecial(capacidad = 5, velocidadMaxima = 160, peso = 1200, color = beige)
 
@@ -20,8 +20,8 @@ describe "Flotas de Rodados - Etapas 1, 2 y 3" {
   const kwidSinTanque  = new RenaultKwid(equipoDeGas = conAdicional)
 
   method initialize() {
-    trafic.interior(interiorPopular)
-    trafic.motor(motorBataton)
+    trafic.cambiarInterior(interiorPopular)
+    trafic.cambiarMotor(motorBataton)
 
     deportes.agregarAFlota(cachito)
     deportes.agregarAFlota(corsaAzul)
