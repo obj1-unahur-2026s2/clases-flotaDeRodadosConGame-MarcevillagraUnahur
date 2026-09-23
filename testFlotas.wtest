@@ -11,13 +11,13 @@ describe "Flotas de Rodados - Etapas 1, 2 y 3" {
   const cachito = new ChevroletCorsa(color = rojo)
 
   const corsaAzul = new ChevroletCorsa(color = azul)
-  const corsaVerde = new ChevroletCorsa(color = verde)
-  const kwidConTanque1 = new RenaultKwid(tieneTanqueAdicional = true)
+  const corsaVerde = new ChevroletCorsa(color = verde)S
+  const kwidConTanque1 = new RenaultKwid(equipoDeGas = conAdicional)
   const autoEspecial = new AutoEspecial(capacidad = 5, velocidadMaxima = 160, peso = 1200, color = beige)
 
-  const kwidConTanque2 = new RenaultKwid(tieneTanqueAdicional = true)
-  const kwidConTanque3 = new RenaultKwid(tieneTanqueAdicional = true)
-  const kwidSinTanque  = new RenaultKwid(tieneTanqueAdicional = false)
+  const kwidConTanque2 = new RenaultKwid(equipoDeGas = conAdicional)
+  const kwidConTanque3 = new RenaultKwid(equipoDeGas = conAdicional)
+  const kwidSinTanque  = new RenaultKwid(equipoDeGas = conAdicional)
 
   method initialize() {
     trafic.interior(interiorPopular)
